@@ -47,7 +47,8 @@ def __compression(tree: Tree,dict:dict) -> Tree :
     t.true = __compression(tree.true,dict)
     return t
 
-def compression_bdd(dict : dict, tree:Tree):
+def compression_bdd(tree:Tree):
+    (tree,dict) = luka(tree)
     return deletion_rules(dict,{},margin_rules({},terminal_rules(dict,tree)))
 
 def terminal_rules(dict : dict, tree:Tree):

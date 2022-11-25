@@ -14,10 +14,15 @@ class Tree:
         self.write = False
         self.taille = 0
         self.hauteur = 0
+        self.taille_visited = False
         self.id = ident
         ident+=1
 
-   
+
+
+    
+
+    
 
 
 def makeLeaf(label : bool) -> Tree:
@@ -33,16 +38,20 @@ def makeNode(label : str, treeF : Tree, treeT : Tree) -> Tree :
     return tree
 
 def cons_arbre(number : int) -> Tree :
-    log2n = log(number) 
-    log2nInt = int(log2n) + 1
-    
-    if log2n >  log2nInt:
-        log2nInt +=1
-   
-    while log(log2nInt) > int(log(log2nInt)):
-        log2nInt +=1
+    log2nInt = 2
+    if number != 0 :
+        log2n = log(number) 
+        log2nInt = int(log2n) + 1
         
+        if log2n >  log2nInt:
+            log2nInt +=1
+    
+        while log(log2nInt) > int(log(log2nInt)):
+            log2nInt +=1
+    if log2nInt < 2:
+        log2nInt = 2
     t = table(number,log2nInt)
+    
     tree =  __cons_arbre(int(log(log2nInt)),t[:len(t)//2],t[len(t)//2:])
     tree.taille = len(t) * 2 -1
     tree.hauteur = int(len(t))
@@ -51,6 +60,10 @@ def cons_arbre(number : int) -> Tree :
 
 def __cons_arbre(number:int,arrayLeft : list, arrayRight: list) -> Tree:
     #  len(arrayLeft) = len(arrayRight) because len(arrayLeft)+len(arrayRight) is a power of 2 
+    if len(arrayLeft) == 0  and  len(arrayRight) == 1 :
+        return makeLeaf(arrayRight[0])
+    if len(arrayLeft) == 1  and  len(arrayRight) == 0 :
+        return makeLeaf(arrayLeft[0])
     if len(arrayLeft) == 1 :
         return makeNode(f"x_{number}",makeLeaf(arrayLeft[0]),makeLeaf(arrayRight[0]))
     return makeNode(f"x_{number}",

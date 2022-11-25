@@ -8,6 +8,13 @@ def decomposition(number):
 
 
 
+def taille_arbre_compresse_robdd(tree) :
+    if (tree.taille_visited):
+        return 0
+    tree.taille_visited = True
+    if(tree.false == None):
+        return 1
+    return 1 + taille_arbre_compresse_robdd(tree.false) + taille_arbre_compresse_robdd(tree.true)
 
 def completion(l,length):
     if len(l) >= length:
