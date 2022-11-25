@@ -1,0 +1,53 @@
+graph
+{
+"x_5_376"[label="x_5"];
+"x_4_370"[label="x_4"];
+"x_5_376" -- "x_4_370" [color=green,penwidth=1.0]
+"x_4_375"[label="x_4"];
+"x_5_376" -- "x_4_375" [color=red,penwidth=1.0]
+"x_4_370"[label="x_4"];
+"x_3_367"[label="x_3"];
+"x_4_370" -- "x_3_367" [color=green,penwidth=1.0]
+"x_3_369"[label="x_3"];
+"x_4_370" -- "x_3_369" [color=red,penwidth=1.0]
+"x_3_367"[label="x_3"];
+"x_2_364"[label="x_2"];
+"x_3_367" -- "x_2_364" [color=green,penwidth=1.0]
+"x_1_366"[label="x_1"];
+"x_3_367" -- "x_1_366" [color=red,penwidth=1.0]
+"x_2_364"[label="x_2"];
+"x_1_363"[label="x_1"];
+"x_2_364" -- "x_1_363" [color=green,penwidth=1.0]
+"True_42"[label="True"];
+"x_2_364" -- "True_42" [color=red,penwidth=1.0]
+"x_1_363"[label="x_1"];
+"True_42"[label="True"];
+"x_1_363" -- "True_42" [color=green,penwidth=1.0]
+"False_58"[label="False"];
+"x_1_363" -- "False_58" [color=red,penwidth=1.0]
+"x_1_366"[label="x_1"];
+"False_58"[label="False"];
+"x_1_366" -- "False_58" [color=green,penwidth=1.0]
+"True_42"[label="True"];
+"x_1_366" -- "True_42" [color=red,penwidth=1.0]
+"x_3_369"[label="x_3"];
+"x_2_368"[label="x_2"];
+"x_3_369" -- "x_2_368" [color=green,penwidth=1.0]
+"x_1_366"[label="x_1"];
+"x_3_369" -- "x_1_366" [color=red,penwidth=1.0]
+"x_2_368"[label="x_2"];
+"x_1_366"[label="x_1"];
+"x_2_368" -- "x_1_366" [color=green,penwidth=1.0]
+"x_1_363"[label="x_1"];
+"x_2_368" -- "x_1_363" [color=red,penwidth=1.0]
+"x_4_375"[label="x_4"];
+"x_3_372"[label="x_3"];
+"x_4_375" -- "x_3_372" [color=green,penwidth=1.0]
+"False_58"[label="False"];
+"x_4_375" -- "False_58" [color=red,penwidth=1.0]
+"x_3_372"[label="x_3"];
+"x_2_368"[label="x_2"];
+"x_3_372" -- "x_2_368" [color=green,penwidth=1.0]
+"x_1_363"[label="x_1"];
+"x_3_372" -- "x_1_363" [color=red,penwidth=1.0]
+}
