@@ -12,5 +12,5 @@ experimentations :
 	python3 Experimentations.py
 
 clean: 
-	rm -rf "./__pycache__" ./dot/* ./code/__pycache__ ./test/__pycache__ ./experimentations/*
+	rm -rf "./__pycache__" ./dot/* ./code/__pycache__  ./experimentations/*
 	clear

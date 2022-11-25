@@ -1,0 +1,8 @@
+graph
+{
+"x_1_15"[label="x_1"];
+"False_1"[label="False"];
+"x_1_15" -- "False_1" [color=green,penwidth=1.0]
+"True_2"[label="True"];
+"x_1_15" -- "True_2" [color=red,penwidth=1.0]
+}
