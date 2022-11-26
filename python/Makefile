@@ -8,7 +8,7 @@ test_tree:
 exec_main :
 	python3 Main.py 
 
-experimentations :
+exec_experimentations :
 	python3 Experimentations.py
 
 clean: 
