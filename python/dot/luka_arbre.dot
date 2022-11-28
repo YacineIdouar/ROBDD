@@ -1,8 +1,0 @@
-graph
-{
-"9_6"[label="9"];
-"0_4"[label="0"];
-"9_6" -- "0_4" [color=green,penwidth=1.0]
-"1_5"[label="1"];
-"9_6" -- "1_5" [color=red,penwidth=1.0]
-}

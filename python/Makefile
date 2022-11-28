@@ -8,9 +8,22 @@ test_tree:
 exec_main :
 	python3 Main.py 
 
-exec_experimentations :
+exec_experimentation :
 	python3 Experimentations.py
 
+define experim =
+	for i in 1 2 3 4 5 6 7 8 9 10
+	do
+		python3 Experimentations.py $i 
+	done;
+endef
+
+exec_experimentations_var_10: ;$(value experim)
+	
+.ONESHELL:
+
+
+
 clean: 
-	rm -rf "./__pycache__" ./dot/* ./code/__pycache__  ./experimentations/*
+	rm -rf "./__pycache__" ./dot/* ./code/__pycache__  ./experimentations/gnuplot_data/*.dat ./experimentations/*.md ./experimentations/gnuplot_diagrammes/*
 	clear

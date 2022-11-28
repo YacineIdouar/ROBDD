@@ -9,10 +9,10 @@ def luka (tree: Tree) :
     dictl = {}
     dictl[True] = 1
     dictl[False] = 0
-    (tree,_) = __luka(tree,dict,dictl,2,tree)
+    (tree,_) = __luka(tree,dict,dictl,tree)
     return (tree,dict)
 
-def __luka(tree: Tree,dict:dict,dictl : dict,indice_label_dictl : int,racine : Tree) -> Tree:
+def __luka(tree: Tree,dict:dict,dictl : dict,racine : Tree) -> Tree:
     #If tree.false == None also tree.true == None
     if tree.false == None :
         leaf = makeLeaf(dictl[tree.label])
@@ -22,16 +22,22 @@ def __luka(tree: Tree,dict:dict,dictl : dict,indice_label_dictl : int,racine : T
     try :
         n = dictl[tree.label]   
     except KeyError:
-        indice_label_dictl = indice_label_dictl +1 
-        dictl[tree.label] = indice_label_dictl
-        n = indice_label_dictl
+        n = len(dictl)
+        dictl[tree.label] = n
 
-    (labelFalse,h1) = __luka(tree.false, dict, dictl , indice_label_dictl, racine)
-    (labelTrue,h2) = __luka(tree.true, dict, dictl, indice_label_dictl, racine)
-    h = hash_luka(n,h1,h2,racine.taille,racine.hauteur)
+    (labelFalse,indice_label_dictl_false) = __luka(tree.false, dict, dictl , racine)
+    (labelTrue,indice_label_dictl_true) = __luka(tree.true, dict, dictl, racine)
+    try :
+        n = dictl[(dictl[tree.label],indice_label_dictl_false,indice_label_dictl_true)]   
+    except KeyError:
+        n = len(dictl)
+        dictl[(dictl[tree.label],indice_label_dictl_false,indice_label_dictl_true)] = n
+
+
+    h = hash_luka(dictl[tree.label],indice_label_dictl_false,indice_label_dictl_true,racine.taille,racine.hauteur)
     node = makeNode(h,labelFalse,labelTrue)
     dict[h] = tree
-    return (node,h)
+    return (node,n)
 
 
 def compression(tree: Tree) -> Tree :
