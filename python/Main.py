@@ -13,7 +13,8 @@ def main ():
     (tree_luka,_) = luka(tree)
     dot(tree,"const_arbre")
     dot(tree_luka,"luka_arbre")
-    dot(compression(tree),"compression arbre")
+    
+    dot(compression(tree),"compression_arbre")
     dot(compression_bdd(tree),"compression_bdd")
     print("La representation des arbres est dans le repertiore dot, mettez ces fichiers sur le site https://graphs.grevian.org/graph pour voir la representation graphique de ces arbres\n")
 

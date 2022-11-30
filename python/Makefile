@@ -26,5 +26,21 @@ exec_experimentations_var_10: ;$(value experim)
 
 
 clean: 
-	rm -rf "./__pycache__" ./dot/* ./code/__pycache__  ./experimentations/gnuplot_data/*.dat ./experimentations/*.md ./experimentations/gnuplot_diagrammes/*
+	rm -rf "./__pycache__"  ./code/__pycache__  
 	clear
+
+clean_tab:
+	rm -rf ./experimentations/*.md
+	clear
+
+clean_dot:
+	rm -rf ./dot/*
+	clear
+
+
+clean_gnuplot:
+	rm -rf ./experimentations/gnuplot_data/*.dat  ./experimentations/gnuplot_diagrammes/*
+	clear
+
+clean_all: clean , clean_tab,clean_gnuplot,clean_dot
+

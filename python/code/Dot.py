@@ -1,7 +1,14 @@
 from code.Tree import Tree
 
+def init_writer(tree:Tree):
+    tree.write = False
+    if tree.false == None:
+        return tree
+    init_writer(tree.false)
+    init_writer(tree.true)
 
 def dot(tree : Tree,name : str):
+    init_writer(tree)
     with open(f"./dot/{name}.dot","w") as f:
         f.write("graph\n")
         f.write("{\n")

@@ -42,6 +42,8 @@ def __luka(tree: Tree,dict:dict,dictl : dict,racine : Tree) -> Tree:
 
 def compression(tree: Tree) -> Tree :
     (treeLuka,dict) = luka (tree)
+    if tree.taille < 4 :
+        return tree
     return __compression(treeLuka,dict)
 
 

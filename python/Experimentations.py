@@ -10,9 +10,12 @@ import sys
 if len(sys.argv) != 3 : 
     nombre_var = int(input("Tapez le nombre de variables des fonctions a experimente : "))
     nombre_max_fun = int(input("Tapez le nombre de fonctions bool : "))
+    tab = False
 else :
     nombre_var = int(sys.argv[1])
     nombre_max_fun = int(sys.argv[2])
+    tab = True
+
 
 if nombre_max_fun == -1 :
     nombre_max_fun = sys.maxsize
@@ -52,6 +55,7 @@ plot(nombre_var)
 nbr_func = borne_sup - borne_inf
 temps_par_robdd = temps/ nbr_func
 
-add_line_in_table(nombre_var ,nbr_func ,nbr_taille_differentes ,time.strftime('%H:%M:%S', time.gmtime(temps))  ,temps_par_robdd)
+if tab :
+    add_line_in_table(nombre_var ,nbr_func ,nbr_taille_differentes ,time.strftime('%H:%M:%S', time.gmtime(temps))  ,temps_par_robdd)
 
 
