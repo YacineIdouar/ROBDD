@@ -17,6 +17,10 @@ class Tree:
         self.taille_visited = False
         self.id = ident
         ident+=1
+    def __repr__(self) -> str:
+        return f"{self.label}"
+
+    
 
 
 

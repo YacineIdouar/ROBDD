@@ -12,12 +12,13 @@ exec_experimentation :
 	python3 Experimentations.py
 
 define experim =
-	for i in 1 2 3 4 5 6 7 8 9 10
+	k=(500003 400003 486892 56343 94999 17975)
+	for i in 5 6 7 8 9 10
 	do
-		python3 Experimentations.py $i 
+		python3 Experimentations.py $i ${k[$i - 5]}
 	done;
 endef
-
+exec_experimentations_var_10: SHELL:=/bin/bash
 exec_experimentations_var_10: ;$(value experim)
 	
 .ONESHELL:

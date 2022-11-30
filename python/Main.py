@@ -7,8 +7,8 @@ from code.Compression import compression, compression_bdd, luka
 
 
 def main ():
-    print("Tapez un nombre pour avoir l'arbre de decision et sa compression")
-    n = int(input())
+    
+    n = int(input("Tapez un nombre pour avoir l'arbre de decision et sa compression: "))
     tree = cons_arbre(n)
     (tree_luka,_) = luka(tree)
     dot(tree,"const_arbre")
