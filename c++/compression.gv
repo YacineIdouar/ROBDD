@@ -1,0 +1,13 @@
+graph { "x3(x2(x1(False)(True))(x1(True)(False)))(x2(x1(False)(True))(x1(False)(False)))" -- "x2(x1(False)(True))(x1(True)(False))" [color = red] 
+"x3(x2(x1(False)(True))(x1(True)(False)))(x2(x1(False)(True))(x1(False)(False)))" -- "x2(x1(False)(True))(x1(False)(False))" [color = green ] 
+"x2(x1(False)(True))(x1(False)(False))" -- "x1(False)(True)" [color = red] 
+"x2(x1(False)(True))(x1(False)(False))" -- "x1(False)(False)" [color = green ] 
+"x1(False)(False)" -- "False" [color = red] 
+"x1(False)(False)" -- "False" [color = green ] 
+"x1(False)(True)" -- "False" [color = red] 
+"x1(False)(True)" -- "True" [color = green ] 
+"x2(x1(False)(True))(x1(True)(False))" -- "x1(False)(True)" [color = red] 
+"x2(x1(False)(True))(x1(True)(False))" -- "x1(True)(False)" [color = green ] 
+"x1(True)(False)" -- "True" [color = red] 
+"x1(True)(False)" -- "False" [color = green ] 
+}
