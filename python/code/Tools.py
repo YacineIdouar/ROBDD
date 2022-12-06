@@ -7,14 +7,25 @@ def decomposition(number):
     return l
 
 
+def init_visited(tree):
+    tree.visited = False
+    if tree.false == None:
+        return tree
+    init_visited(tree.false)
+    init_visited(tree.true)
 
 def taille_arbre_compresse_robdd(tree) :
-    if (tree.taille_visited):
+    init_visited(tree)
+    return _taille_arbre_compresse_robdd(tree)
+
+
+def _taille_arbre_compresse_robdd(tree) :
+    if (tree.visited):
         return 0
-    tree.taille_visited = True
+    tree.visited = True
     if(tree.false == None):
         return 1
-    return 1 + taille_arbre_compresse_robdd(tree.false) + taille_arbre_compresse_robdd(tree.true)
+    return 1 + _taille_arbre_compresse_robdd(tree.false) + _taille_arbre_compresse_robdd(tree.true)
 
 def completion(l,length):
     if len(l) >= length:

@@ -11,10 +11,9 @@ class Tree:
         self.label = label
         self.false = None
         self.true = None
-        self.write = False
         self.taille = 0
         self.hauteur = 0
-        self.taille_visited = False
+        self.visited = False
         self.id = ident
         ident+=1
     def __repr__(self) -> str:

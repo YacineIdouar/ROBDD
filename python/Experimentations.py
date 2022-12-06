@@ -9,7 +9,7 @@ import sys
 
 if len(sys.argv) != 3 : 
     nombre_var = int(input("Tapez le nombre de variables des fonctions a experimente : "))
-    nombre_max_fun = int(input("Tapez le nombre de fonctions bool : "))
+    nombre_max_fun = int(input("Tapez le nombre de fonctions bool (-1 si toutes): "))
     tab = False
 else :
     nombre_var = int(sys.argv[1])
@@ -17,42 +17,48 @@ else :
     tab = True
 
 
-if nombre_max_fun == -1 :
-    nombre_max_fun = sys.maxsize
+if nombre_max_fun < 0 :
+    nombre_max_fun = 0
 if nombre_var <= 1:
      borne_inf = 0
 else:
     borne_inf = int(2**(2**(nombre_var - 1)))
 
 borne_sup = int(2**(2**nombre_var))
-if nombre_max_fun + borne_inf < borne_sup :
-    borne_sup = nombre_max_fun + borne_inf
-dict = {}
-nbr_taille_differentes = 0
 
-print("Patientez SVP ...{borne_sup}")
-
-temps_debut = time.time()
-for i in range(borne_inf,borne_sup):
-    print(f"fonction : {i} nombre_var : {nombre_var} borne inf : {borne_inf} borne inf : {borne_sup}")
-    tree = compression_bdd(cons_arbre(i))
+dict_taille = {}
+if nombre_max_fun == 0 :
+    step = 1
+else :
+    step = (borne_sup -borne_inf)//nombre_max_fun 
+nbr_func = 0
+temps = 0
+for i in range(borne_inf,borne_sup,step):
+    nbr_func += 1
+    if nbr_func > nombre_max_fun:
+        nbr_func -=1
+        break
+    print(f"fonction : {i} nombre_var : {nombre_var} borne inf : {borne_inf} borne sup : {borne_sup} temps : {temps}")
+    arbre = cons_arbre(i)
+    temps_debut = time.time()
+    tree = compression_bdd(arbre)
+    temps_fin = time.time()
+    temps += temps_fin - temps_debut
     taille = taille_arbre_compresse_robdd(tree)    
     try:
-        dict[taille] = dict[taille] + 1
+        dict_taille[taille] = dict_taille[taille] + 1
     except KeyError :
-        dict[taille] = 1
-        nbr_taille_differentes += 1
+        dict_taille[taille] = 1
+    
 
 
-temps_fin = time.time()
-temps = temps_fin - temps_debut
 nbr_taille_differentes = 0
 with open(f"./experimentations/gnuplot_data/nombre_var{nombre_var}.dat","w") as f:
-    for k in {k: v for k, v in sorted(dict.items(), key=lambda item: item[0])}:
-        f.write(f"{k} {dict[k]}\n")
+    for k in {k: v for k, v in sorted(dict_taille.items(), key=lambda item: item[0])}:
+        f.write(f"{k} {dict_taille[k]}\n")
         nbr_taille_differentes += 1
 plot(nombre_var)
-nbr_func = borne_sup - borne_inf
+
 temps_par_robdd = temps/ nbr_func
 
 if tab :
