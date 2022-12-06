@@ -18,7 +18,7 @@ else :
 
 
 if nombre_max_fun < 0 :
-    nombre_max_fun = 0
+    nombre_max_fun = sys.maxsize
 if nombre_var <= 1:
      borne_inf = 0
 else:
@@ -27,7 +27,7 @@ else:
 borne_sup = int(2**(2**nombre_var))
 
 dict_taille = {}
-if nombre_max_fun == 0 :
+if nombre_max_fun == sys.maxsize :
     step = 1
 else :
     step = (borne_sup -borne_inf)//nombre_max_fun 
