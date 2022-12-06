@@ -1,0 +1,38 @@
+graph
+{
+"x_4_159"[label="x_4"];
+"x_3_155"[label="x_3"];
+"x_4_159" -- "x_3_155" [color=green,penwidth=1.0]
+"x_3_158"[label="x_3"];
+"x_4_159" -- "x_3_158" [color=red,penwidth=1.0]
+"x_3_155"[label="x_3"];
+"x_2_153"[label="x_2"];
+"x_3_155" -- "x_2_153" [color=green,penwidth=1.0]
+"x_1_152"[label="x_1"];
+"x_3_155" -- "x_1_152" [color=red,penwidth=1.0]
+"x_2_153"[label="x_2"];
+"x_1_151"[label="x_1"];
+"x_2_153" -- "x_1_151" [color=green,penwidth=1.0]
+"x_1_152"[label="x_1"];
+"x_2_153" -- "x_1_152" [color=red,penwidth=1.0]
+"x_1_151"[label="x_1"];
+"True_17"[label="True"];
+"x_1_151" -- "True_17" [color=green,penwidth=1.0]
+"False_27"[label="False"];
+"x_1_151" -- "False_27" [color=red,penwidth=1.0]
+"x_1_152"[label="x_1"];
+"False_27"[label="False"];
+"x_1_152" -- "False_27" [color=green,penwidth=1.0]
+"True_17"[label="True"];
+"x_1_152" -- "True_17" [color=red,penwidth=1.0]
+"x_3_158"[label="x_3"];
+"x_2_156"[label="x_2"];
+"x_3_158" -- "x_2_156" [color=green,penwidth=1.0]
+"False_27"[label="False"];
+"x_3_158" -- "False_27" [color=red,penwidth=1.0]
+"x_2_156"[label="x_2"];
+"True_17"[label="True"];
+"x_2_156" -- "True_17" [color=green,penwidth=1.0]
+"False_27"[label="False"];
+"x_2_156" -- "False_27" [color=red,penwidth=1.0]
+}

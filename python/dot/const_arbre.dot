@@ -1,0 +1,78 @@
+graph
+{
+"x_4_31"[label="x_4"];
+"x_3_15"[label="x_3"];
+"x_4_31" -- "x_3_15" [color=green,penwidth=1.0]
+"x_3_30"[label="x_3"];
+"x_4_31" -- "x_3_30" [color=red,penwidth=1.0]
+"x_3_15"[label="x_3"];
+"x_2_7"[label="x_2"];
+"x_3_15" -- "x_2_7" [color=green,penwidth=1.0]
+"x_2_14"[label="x_2"];
+"x_3_15" -- "x_2_14" [color=red,penwidth=1.0]
+"x_2_7"[label="x_2"];
+"x_1_3"[label="x_1"];
+"x_2_7" -- "x_1_3" [color=green,penwidth=1.0]
+"x_1_6"[label="x_1"];
+"x_2_7" -- "x_1_6" [color=red,penwidth=1.0]
+"x_1_3"[label="x_1"];
+"True_1"[label="True"];
+"x_1_3" -- "True_1" [color=green,penwidth=1.0]
+"False_2"[label="False"];
+"x_1_3" -- "False_2" [color=red,penwidth=1.0]
+"x_1_6"[label="x_1"];
+"False_4"[label="False"];
+"x_1_6" -- "False_4" [color=green,penwidth=1.0]
+"True_5"[label="True"];
+"x_1_6" -- "True_5" [color=red,penwidth=1.0]
+"x_2_14"[label="x_2"];
+"x_1_10"[label="x_1"];
+"x_2_14" -- "x_1_10" [color=green,penwidth=1.0]
+"x_1_13"[label="x_1"];
+"x_2_14" -- "x_1_13" [color=red,penwidth=1.0]
+"x_1_10"[label="x_1"];
+"False_8"[label="False"];
+"x_1_10" -- "False_8" [color=green,penwidth=1.0]
+"True_9"[label="True"];
+"x_1_10" -- "True_9" [color=red,penwidth=1.0]
+"x_1_13"[label="x_1"];
+"False_11"[label="False"];
+"x_1_13" -- "False_11" [color=green,penwidth=1.0]
+"True_12"[label="True"];
+"x_1_13" -- "True_12" [color=red,penwidth=1.0]
+"x_3_30"[label="x_3"];
+"x_2_22"[label="x_2"];
+"x_3_30" -- "x_2_22" [color=green,penwidth=1.0]
+"x_2_29"[label="x_2"];
+"x_3_30" -- "x_2_29" [color=red,penwidth=1.0]
+"x_2_22"[label="x_2"];
+"x_1_18"[label="x_1"];
+"x_2_22" -- "x_1_18" [color=green,penwidth=1.0]
+"x_1_21"[label="x_1"];
+"x_2_22" -- "x_1_21" [color=red,penwidth=1.0]
+"x_1_18"[label="x_1"];
+"True_16"[label="True"];
+"x_1_18" -- "True_16" [color=green,penwidth=1.0]
+"True_17"[label="True"];
+"x_1_18" -- "True_17" [color=red,penwidth=1.0]
+"x_1_21"[label="x_1"];
+"False_19"[label="False"];
+"x_1_21" -- "False_19" [color=green,penwidth=1.0]
+"False_20"[label="False"];
+"x_1_21" -- "False_20" [color=red,penwidth=1.0]
+"x_2_29"[label="x_2"];
+"x_1_25"[label="x_1"];
+"x_2_29" -- "x_1_25" [color=green,penwidth=1.0]
+"x_1_28"[label="x_1"];
+"x_2_29" -- "x_1_28" [color=red,penwidth=1.0]
+"x_1_25"[label="x_1"];
+"False_23"[label="False"];
+"x_1_25" -- "False_23" [color=green,penwidth=1.0]
+"False_24"[label="False"];
+"x_1_25" -- "False_24" [color=red,penwidth=1.0]
+"x_1_28"[label="x_1"];
+"False_26"[label="False"];
+"x_1_28" -- "False_26" [color=green,penwidth=1.0]
+"False_27"[label="False"];
+"x_1_28" -- "False_27" [color=red,penwidth=1.0]
+}

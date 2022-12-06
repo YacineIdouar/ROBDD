@@ -1,0 +1,78 @@
+graph
+{
+"7602_62"[label="7602"];
+"4595_46"[label="4595"];
+"7602_62" -- "4595_46" [color=green,penwidth=1.0]
+"7155_61"[label="7155"];
+"7602_62" -- "7155_61" [color=red,penwidth=1.0]
+"4595_46"[label="4595"];
+"3572_38"[label="3572"];
+"4595_46" -- "3572_38" [color=green,penwidth=1.0]
+"3588_45"[label="3588"];
+"4595_46" -- "3588_45" [color=red,penwidth=1.0]
+"3572_38"[label="3572"];
+"21_34"[label="21"];
+"3572_38" -- "21_34" [color=green,penwidth=1.0]
+"501_37"[label="501"];
+"3572_38" -- "501_37" [color=red,penwidth=1.0]
+"21_34"[label="21"];
+"1_32"[label="1"];
+"21_34" -- "1_32" [color=green,penwidth=1.0]
+"0_33"[label="0"];
+"21_34" -- "0_33" [color=red,penwidth=1.0]
+"501_37"[label="501"];
+"0_35"[label="0"];
+"501_37" -- "0_35" [color=green,penwidth=1.0]
+"1_36"[label="1"];
+"501_37" -- "1_36" [color=red,penwidth=1.0]
+"3588_45"[label="3588"];
+"501_41"[label="501"];
+"3588_45" -- "501_41" [color=green,penwidth=1.0]
+"501_44"[label="501"];
+"3588_45" -- "501_44" [color=red,penwidth=1.0]
+"501_41"[label="501"];
+"0_39"[label="0"];
+"501_41" -- "0_39" [color=green,penwidth=1.0]
+"1_40"[label="1"];
+"501_41" -- "1_40" [color=red,penwidth=1.0]
+"501_44"[label="501"];
+"0_42"[label="0"];
+"501_44" -- "0_42" [color=green,penwidth=1.0]
+"1_43"[label="1"];
+"501_44" -- "1_43" [color=red,penwidth=1.0]
+"7155_61"[label="7155"];
+"6132_53"[label="6132"];
+"7155_61" -- "6132_53" [color=green,penwidth=1.0]
+"6148_60"[label="6148"];
+"7155_61" -- "6148_60" [color=red,penwidth=1.0]
+"6132_53"[label="6132"];
+"517_49"[label="517"];
+"6132_53" -- "517_49" [color=green,penwidth=1.0]
+"5_52"[label="5"];
+"6132_53" -- "5_52" [color=red,penwidth=1.0]
+"517_49"[label="517"];
+"1_47"[label="1"];
+"517_49" -- "1_47" [color=green,penwidth=1.0]
+"1_48"[label="1"];
+"517_49" -- "1_48" [color=red,penwidth=1.0]
+"5_52"[label="5"];
+"0_50"[label="0"];
+"5_52" -- "0_50" [color=green,penwidth=1.0]
+"0_51"[label="0"];
+"5_52" -- "0_51" [color=red,penwidth=1.0]
+"6148_60"[label="6148"];
+"5_56"[label="5"];
+"6148_60" -- "5_56" [color=green,penwidth=1.0]
+"5_59"[label="5"];
+"6148_60" -- "5_59" [color=red,penwidth=1.0]
+"5_56"[label="5"];
+"0_54"[label="0"];
+"5_56" -- "0_54" [color=green,penwidth=1.0]
+"0_55"[label="0"];
+"5_56" -- "0_55" [color=red,penwidth=1.0]
+"5_59"[label="5"];
+"0_57"[label="0"];
+"5_59" -- "0_57" [color=green,penwidth=1.0]
+"0_58"[label="0"];
+"5_59" -- "0_58" [color=red,penwidth=1.0]
+}
