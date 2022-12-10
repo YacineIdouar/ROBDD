@@ -1,7 +1,7 @@
 #pragma once
 
 #include<string>
-
+#include<memory>
 
 
 
@@ -11,13 +11,14 @@ class Noeud{
     public :
     int id_int;
     std::string identifiant;
-    Noeud* filsGauche;
-    Noeud *filsDroit;
-    Noeud* pere;
+    std::shared_ptr <Noeud> filsGauche;
+    std::shared_ptr <Noeud> filsDroit;
+    std::shared_ptr <Noeud>  pere;
     bool reel;
+    bool visite;
     std::string mot_luka;
 
-    Noeud(Noeud* filsGauche,Noeud* filsDroit,int id_int,bool reel) {
+    Noeud(std::shared_ptr <Noeud> filsGauche,std::shared_ptr <Noeud>  filsDroit,int id_int,bool reel) {
       
         // La cohérence des noeuds de l'arbre sera assuré par la fonction de construction
         this->id_int = id_int;
@@ -26,8 +27,10 @@ class Noeud{
         this->filsGauche = filsGauche;
         this->pere = nullptr;
         this->reel = reel;
+        this->visite = false;
         this->mot_luka = "";
     }
+    ~Noeud(){}
     
 
 };

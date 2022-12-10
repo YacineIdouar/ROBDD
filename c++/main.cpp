@@ -1,56 +1,102 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <utility>
+
 #include "fonction_algo.h"
 
+
 using namespace std;
+using namespace chrono;
 
 // Affichage du Dot 
-void parcours_arbre(Noeud* racine, string& s,vector<Noeud*>& deja_affiche){
-    if (racine->filsDroit == nullptr){return;}
-    // Vérifier si un noeud à déja était visité !
-    if (find(deja_affiche.begin(),deja_affiche.end(),racine) == deja_affiche.end()){
-    s+= '"' + racine->mot_luka + '"' +" -- " + '"'+racine->filsGauche->mot_luka +'"'   + " [color = red] " +  "\n";
-    s+= '"' + racine->mot_luka + '"' + " -- " +'"'+ racine->filsDroit->mot_luka + '"'   +" [color = green ]" + " \n";
-    deja_affiche.push_back(racine); // On ajoute la racine à la liste!
-    }
-    parcours_arbre(racine->filsDroit,s,deja_affiche);
-    parcours_arbre(racine->filsGauche,s,deja_affiche);
+
+
+// Réalisation des réprésentation graphiques 
+void benchmark(int puissance, string path_table,string path_plot,int nb_element){
+
+    boost::multiprecision::int1024_t fin (pow(2,puissance));
+    //fin = fin + ((long)pow(2,1023) - 1); cas de 1024 bits
+
+    cout << fin << endl;
+    boost::multiprecision::int1024_t debut (1);
+    boost::multiprecision::int1024_t interval((fin-debut)/(nb_element));
+    cout << interval << endl;
     
-}
+    // Ouverture des deux fichiers fichier 
+    ofstream flux_plot;
+    flux_plot.open(path_plot);
+    ofstream flux_tab;
+    flux_tab.open(path_table, ios_base::app);
 
-void dot_racine(Noeud* racine, string path){
-    string graph_res;
-    vector <Noeud*> deja_affiche;
-    parcours_arbre(racine,graph_res,deja_affiche);
-    graph_res= "graph { " + graph_res + "}";
-    ofstream flux(path);
-    flux << graph_res << endl;
 
+    vector<pair<unsigned long,int>> taille_differente;
+
+    // Variable du benchmark
+    time_point<high_resolution_clock> start_point,end_point;
+    milliseconds::rep exec = 0.0;
+
+    boost::multiprecision::int1024_t i;
+    for (i =debut; i<fin ; i+= interval){
+
+        shared_ptr<Noeud> racine = creation_arbe(table(i,puissance));
+        vector<pair<string,shared_ptr<Noeud>>> tableau_robdd;
+
+        start_point = high_resolution_clock::now();
+        racine = robdd(racine,tableau_robdd);
+        end_point = high_resolution_clock::now();
+
+        auto start = time_point_cast<milliseconds>(start_point).time_since_epoch().count();
+        auto end = time_point_cast<milliseconds>(end_point).time_since_epoch().count();
+        exec += end-start;
+
+        auto it = find_if(taille_differente.begin(),taille_differente.end(),[&](auto & elem){ return elem.first == tableau_robdd.size();});
+
+        if(it!=taille_differente.end()){
+            it->second ++;
+        }else{
+            taille_differente.push_back(make_pair(tableau_robdd.size(),1));
+        }
+        
+
+        cout << i << endl;
+
+    }
+    // Les variables à écrire 
+    sort(taille_differente.begin(),taille_differente.end(),[](auto& elem1, auto& elem2 ){return elem2.first > elem1.first;});
+
+    for (auto & i : taille_differente){
+        flux_plot << i.first  << "\t" << i.second<< endl;
+    }
+   
+    //flux_tab << log2(puissance)  << " " << nb_element << " " << taille_differente.size() << " " << convertion(exec) << " " << exec/double (nb_element) << endl;
+    
+ 
 }
 
 
 int main (){
 
-    int nombre = 38;
+
+    benchmark(2,"table.txt","plot.txt",3);
+    /*int puiss = 8;
+    boost::multiprecision::int1024_t  nombre (17);
+    cout << nombre << endl;
     // Création de la table des correspondance 
 
-    Noeud* racine1 = creation_arbe(table(nombre,8));
-    Noeud* racine2 = creation_arbe(table(nombre,8));
-    cout << lukas(racine1) << endl;
+    shared_ptr<Noeud> racine = creation_arbe(table(nombre,puiss));
+    vector<pair<string,shared_ptr<Noeud>>> tableau_robdd;
+    cout << lukas(racine) << endl;
+    //vector<pair<string,shared_ptr<Noeud>>> tableau_comp;
 
-    //string sAv = "";
-    //dot_racine(racine,sAv);
-    //cout<< sAv  << endl;
+    racine = robdd(racine,tableau_robdd);
+    dot_racine(racine,"robdd.gv");
+
+    //cout << tableau_robdd.size() << endl;
+
+    //racine = compression_arbre(racine,tableau_robdd);
+    //dot_racine(racine,"compression.gv");*/
     
-    vector<pair<string,Noeud*>> tableau_robdd;
-    vector<pair<string,Noeud*>> tableau_comp;
-
-    racine1 = robdd(racine1,tableau_robdd);
-    dot_racine(racine1,"robdd.gv");
-
-    racine2 = compression_arbre(racine2,tableau_comp);
-    dot_racine(racine2,"compression.gv");
-   
     return 0;
 }
