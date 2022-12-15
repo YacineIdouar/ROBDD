@@ -1,7 +1,6 @@
 
 from code.Tools import hash_luka
 from code.Tree import Tree,makeNode,makeLeaf
-from math import log2 as log
 
 
 def luka (tree: Tree) :
@@ -19,20 +18,21 @@ def __luka(tree: Tree,dict:dict,dictl : dict,racine : Tree) -> Tree:
         dict[dictl[tree.label]] = tree
         return (leaf,dictl[tree.label])
     n = 0
+    # recuperer l'indice du label dans la table de structure-encodage
     try :
         n = dictl[tree.label]   
     except KeyError:
         n = len(dictl)
         dictl[tree.label] = n
-
+    # Recuperer le numero des fils dans la table des structure-encodage
     (labelFalse,indice_label_dictl_false) = __luka(tree.false, dict, dictl , racine)
     (labelTrue,indice_label_dictl_true) = __luka(tree.true, dict, dictl, racine)
+    # Recuperer l'indice de la structure (indice du label,fils gauche,ficls droite)
     try :
         n = dictl[(dictl[tree.label],indice_label_dictl_false,indice_label_dictl_true)]   
     except KeyError:
         n = len(dictl)
         dictl[(dictl[tree.label],indice_label_dictl_false,indice_label_dictl_true)] = n
-
 
     h = hash_luka(dictl[tree.label],indice_label_dictl_false,indice_label_dictl_true,racine.taille,racine.hauteur)
     node = makeNode(h,labelFalse,labelTrue)
@@ -57,7 +57,8 @@ def __compression(tree: Tree,dict:dict) -> Tree :
 
 def compression_bdd(tree:Tree):
     (tree,dict) = luka(tree)
-    return deletion_rules(dict,{},margin_rules({},terminal_rules(dict,tree)))
+    return deletion_rules(dict,{},mergin_rules({},terminal_rules(dict,tree)))
+
 
 def terminal_rules(dict : dict, tree:Tree):
     if tree.false == None :
@@ -65,19 +66,16 @@ def terminal_rules(dict : dict, tree:Tree):
     return makeNode(tree.label,terminal_rules(dict,tree.false),terminal_rules(dict,tree.true))
     
 
-def margin_rules(dict:dict,tree:Tree):
+def mergin_rules(dict:dict,tree:Tree):
     try :
-        dict[tree.label]
         return dict[tree.label]
 
     except KeyError :
         if tree.false == None :
             dict[tree.label] = tree
             return tree
-        dict[tree.label] = makeNode(tree.label,margin_rules(dict, tree.false),margin_rules(dict, tree.true))
+        dict[tree.label] = makeNode(tree.label,mergin_rules(dict, tree.false),mergin_rules(dict, tree.true))
         return dict[tree.label]
-
-
 
 def deletion_rules(dict:dict,dict2 : dict,tree:Tree):
     try :
