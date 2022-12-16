@@ -79,8 +79,8 @@ void benchmark(int puissance, string path_table,string path_plot,int nb_element)
 int main (){
 
 
-    benchmark(2,"table.txt","plot.txt",3);
-    /*int puiss = 8;
+    //benchmark(32,"table.txt","plot.txt",50000);
+    int puiss = 8;
     boost::multiprecision::int1024_t  nombre (17);
     cout << nombre << endl;
     // Création de la table des correspondance 
